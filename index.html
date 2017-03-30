@@ -117,33 +117,6 @@
     $("#forgot-password").click(function() {
         $("#forgot-password-modal").modal();
     });
-    $('#send-email-confirmation-button').on('click', function() {
-        invalid_fields_on_page = 0;
-        $('#new-password').trigger('blur');
-        $('#confirm-new-password').trigger('blur');
-
-        var email = $('#usrname').val();
-        var new_password = $('#new-password').val();
-        var confirm_new_password = $('#confirm-new-password').val();
-
-        if (invalid_fields_on_page == 0) {
-            //Change password in database
-
-            function response(res) {
-                console.log(res);
-                var obj = JSON.parse(res);
-                if (true) {
-                    $('#forgot-password-message').css('color', 'green');
-                    $('#forgot-password-message').text(obj.message);
-                } else {
-                    $('#forgot-password-message').css('color', 'red');
-                    $('#forgot-password-message').text(obj.message);
-                }
-            }
-        }
-
-
-    });
 </script>
 <script>
     // Initialize Firebase
@@ -219,9 +192,7 @@
             console.log(error.message);
         })
         
-/*
         alert("Email-Link zugeschickt");
-*/
     });
 </script>
 
