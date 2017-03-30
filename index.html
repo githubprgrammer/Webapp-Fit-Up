@@ -7,7 +7,6 @@
 	<meta charset="UTF-8"/>
     <title>Fit Up Administration</title>
 
-	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -58,13 +57,13 @@
               <label for="Passwort"><span class="glyphicon glyphicon-eye-open"></span> Passwort</label>
 			  <input id="password" type="password" class="form-control form-element" name="password" placeholder="Passwort">
             </div>
+                <div id="falsepassword" style="display:none">Das Passwort ist ungültig oder die angegebene Email-Adresse ist nicht registriert.</div>
+                <div class="emailbadlyformatted" style="display:none">Geben Sie eine gültige Email-Adresse an!</div>
             <br>
 			<button type="button" class="btn btn-default btn-success btn-block submit-btn login-btn"><span class="glyphicon glyphicon-lock"></span>&nbsp; Login</button>
           </form>
         </div>
         <div class="modal-footer">
-          <!-- Message from serverside (basanth)-->
-          <div class="pull-left message" id="login-message"></div>
            <p> <a id="forgot-password" href="#">Passwort vergessen?</a></p><br>
         </div>
       </div>
@@ -95,6 +94,8 @@
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
               <input type="text" class="form-control" id="email1" placeholder="Email">
+            <div id="nouserrecord" style="display:none">Unter dieser Email-Adresse ist kein User registriert</div>
+                <div class="emailbadlyformatted" style="display:none">Geben Sie eine gültige Email-Adresse an!</div>
             </div>
             
 
@@ -180,16 +181,47 @@
         firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
             console.log(error.code);
             console.log(error.message);
-            alert(error.message);
-            alert(error.code);
+/*            if(error.code = "auth/invalid-email"){
+                alert("ungültige Email-Adresse");
+            }*/
+            if(error.message == "The email address is badly formatted."){
+                $(".emailbadlyformatted").css("display","inherit");
+                $("#falsepassword").css("display","none");
+                $("#email").addClass("invalid");
+
+            }
+            else if(error.message == "The password is invalid or the user does not have a password."){
+                $(".emailbadlyformatted").css("display","none");
+                $("#falsepassword").css("display","inherit");
+                $("#email").addClass("invalid");
+                $("#password").addClass("invalid");
+            }
+
         });
     });
 </script>
 <script>
     $("#send-email-link-button").on("click", function() {
         var email1 = $("#email1").val();
-        firebase.auth().sendPasswordResetEmail(email1);
+        firebase.auth().sendPasswordResetEmail(email1).catch(function(error){
+             if(error.message == "The email address is badly formatted."){
+                $(".emailbadlyformatted").css("display","inherit");
+                $("#nouserrecord").css("display","none");
+                $("#email1").addClass("invalid");
+
+            }
+            else if(error.message == "There is no user record corresponding to this identifier. The user may have been deleted."){
+                $("#emailbadlyformatted").css("display","none");
+                $("#nouserrecord").css("display","inherit");
+                $("#email1").addClass("invalid");
+            }
+            alert(error.message);
+            console.log(error.message);
+        })
+        
+/*
         alert("Email-Link zugeschickt");
+*/
     });
 </script>
 

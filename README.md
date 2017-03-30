@@ -1,5 +1,6 @@
-# Webapp
-This is a Webapplication for the Administration of the Fit-Up-App.
+# Webapp Fit Up
+This is a Webapplication for the Administration of the Fit-Up-App. You can find the repository of the native app here: https://github.com/MbProg/Fitup
+
 The Admin is able to change the settings of the app. He is able to choose between 3 different assignmenttypes(sameForall, randomized and alternating) to assign certain motivationmethods to the App users. It is possible to determin time periods for the different assignmenttypes and also different combinations of motivation methods. 
 
 Furthermore the Admin can upload motivation texts and images which will show up in the App at certain events.
