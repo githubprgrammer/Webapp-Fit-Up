@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Zuweisung der Unterstützungsmaßnahmen</title>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
+
+
+    <link rel="stylesheet" href="css/pikaday.css">
+
+
+
+
+
+
+
+    <style type="text/css">
+
+
+    </style>
+
+
+</head>
+
+<body>
+    <div id="header" class="background-light-grey">
+        <h1>Fit Up Administration</h1>
+
+        <button type="button" class="btn btn-default btn-sm logout-button">
+          <span class="glyphicon glyphicon-log-out"></span> Ausloggen
+        </button>
+
+    </div>
+
+    <header>
+        <div class="nav">
+            <ul>
+                <li><a class="active" href="./assignment.html">Zuweisung</a></li>
+                <li><a href="./intensifier.html">Verstärkerplan</a></li>
+                <li><a href="./motivationalText.html">Motivationstext</a></li>
+                <li id="bsa-nav"><a href="./BSA_questionary.html">BSA-Fragebogen</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class='main-container'>
+        <div class='all-container'>
+            <div class='all-header'>
+                <p>gleiche Zuweisung</p><button class='addbutton'>hinzufügen</button><button class='removebutton'>entfernen</button></div>
+            <div class='all-elements-container'>
+                <div class="all-element" id="same1">
+                    <div class="elementnr">
+                        <p>#1</p>
+                    </div>
+                    <div class="date"><label for="All-from1"> Von   </label><input type="text" class="date-from" id="All-from1"><label for="All-to1"> Bis   </label><input type="text" class="date-to" id="All-to1"></div>
+                    <div class="group"><label><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label><input type="checkbox" class = "motivationtexts" motivator-nr = 4> Motivationstexte</label><label><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class='random-container'>
+            <div class='random-header'>
+                <p>Randomisiert</p><button class='addbutton'>hinzufügen</button><button class='removebutton'>entfernen</button></div>
+            <div class='all-elements-container'>
+                <div class="all-element" id="random1">
+                    <div class="elementnr">
+                        <p>#1</p>
+                    </div>
+                    <div class="date"><label for="Random-from1"> Von   </label><input type="text" class="date-from" id="Random-from1"><label for="Random-to1"> Bis   </label><input type="text" class="date-to" id="Random-to1"></div>
+                    <div class="group"><label><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label><input type="checkbox" class = "motivationtexts" motivator-nr = 4> Motivationstexte</label><label><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <div class='alternate-container'>
+            <div class='altern-header'>
+                <p>Alternierend</p><button class='addbutton'>hinzufügen</button><button class='removebutton'>entfernen</button></div>
+            <div class='all-elements-container'>
+                <div class="all-element" id="altern1">
+                    <div class="elementnr">
+                        <p>#1</p>
+                    </div>
+                    <div class="date"><label for="Altern-from1"> Von   </label><input type="text" class="date-from" id="Altern-from1"><label for="Altern-to1"> Bis   </label><input type="text" class="date-to" id="Altern-to1"></div><button class="addgroupbutton">Gruppe hinzufügen</button><button class="removegroupbutton">Gruppe entfernen </button>
+                    <div class="group">
+                        <p>Gruppe <b>1</b></p><label><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label><input type="checkbox" class = "motivationtexts" motivator-nr = 4 > Motivationstexte</label><label><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div>
+                    <div class="group">
+                        <p>Gruppe <b>2</b></p><label><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label><input type="checkbox" class = "motivationtexts" motivator-nr = 4 > Motivationstexte</label><label><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="message-container">
+        <div class="col-sm-6 col-md-6" id="alert-message" style="display:none">
+            <div class="alert alert-danger">
+                <span class="glyphicon glyphicon-hand-right"></span> <strong>Fehlermeldung</strong>
+                <hr class="message-inner-separator">
+                <p>Überprüfen Sie nocheinmal Ihre Eingaben.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class='buttondiv'> <button type="button" class="btn btn-primary" id="saveassignment">Speichern</button></div>
+
+
+    <script src="js/pikaday.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/assignment.js"></script>
+</body>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,414 @@
+.is-hidden {
+    display: none;
+}
+
+.is-invisible {
+    visibility: hidden;
+}
+
+.is-visited {
+    background: #f5f5f5;
+    color: #16a085;
+}
+
+.is-unvisited {
+    background: #f5f5f5;
+}
+
+.is-active {
+    background: #16a085;
+    color: white;
+}
+
+.is-disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.min-btn-padding {
+    padding: 4px 8px;
+}
+.invalid {
+  background-color: #ffdddd;
+}
+
+/*Theme Styles*/
+
+.light-blue {
+    color: #3498DB;
+}
+
+.green {
+    color: #00C957;
+}
+
+.red {
+    color: red;
+}
+
+.maroon {
+    color: #C0392B;
+}
+
+.dark-green {
+    color: #27AE60;
+}
+
+.lemon-yellow {
+    color: #2ECC71;
+}
+
+.orange-yellow {
+    color: #F39C12;
+}
+
+.orange {
+    color: #E67E22;
+}
+
+.dark-orange {
+    color: #D35400;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.white {
+    color: white;
+}
+
+.light-grey {
+    color: #ECF0F1;
+}
+
+.background-light-blue {
+    background-color: #3498DB;
+}
+
+.background-green {
+    background-color: #1ABC9C;
+}
+
+.background-red {
+    background-color: red;
+}
+
+.background-maroon {
+    background-color: #C0392B;
+}
+
+.background-dark-green {
+    background-color: #16A085;
+}
+
+.background-lemon-yellow {
+    background-color: #F1C40F;
+}
+
+.background-orange-yellow {
+    background-color: #F39C12;
+}
+
+.background-orange {
+    background-color: #E67E22;
+}
+
+.background-dark-orange {
+    background-color: #D35400;
+}
+
+.background-yellow {
+    background-color: yellow;
+}
+
+.background-white {
+    background-color: white;
+}
+
+.background-light-grey {
+    background-color: #ECF0F1;
+}
+
+#header {
+    width: 100%;
+    padding-top: 15px;
+    height: 100px
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+#header h1 {
+    text-align: center;
+}
+
+
+/*error message*/
+
+#datecollision {
+    display: none;
+}
+
+
+/*error message*/
+
+
+/*Navbar*/
+
+.nav ul {
+    list-style: none;
+    background-color: #444;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #888;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: .3s background-color;
+}
+
+.nav a:hover {
+    background-color: #005f5f;
+}
+
+.nav a.active {
+    background-color: lightgrey;
+    color: #444;
+    cursor: default;
+}
+
+#bsa-nav {
+    width: 180px;
+}
+#bsa-nav2{
+    width: 200px;
+}
+.logout-button{
+    margin-top: -150px;
+margin-left: 10px;
+}
+@media screen and (min-width: 600px) {
+    .nav li {
+        width: 160px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+    }
+    .nav li {
+        display: inline-block;
+        margin-right: -4px;
+    }
+    .nav ul {
+        margin-left: 450px;
+        margin-top: 0px;
+    }
+    Navbar .logout-button {
+        float: left;
+        margin-top: -70px;
+    }
+    .form-check .form-check-input {
+        color: black;
+    }
+}
+
+
+/*assignment*/
+
+.main-container {
+    width: 1600px;
+}
+
+.all-container,
+.random-container,
+.alternate-container {
+    float: left;
+    width: 30%;
+    margin: 0 5px;
+    padding: 5px;
+}
+
+.all-container p,
+.random-container p,
+.alternate-container p,
+.all-container label,
+.random-container label,
+.alternate-container label {
+    padding-left: 7px;
+}
+
+.all-element {
+    border: 1px solid;
+    margin-bottom: 5px;
+}
+
+.buttondiv {
+    margin-left: 20px;
+    width: 100%;
+    float: left;
+}
+
+button.addbutton,
+button.removebutton,
+button.addgroupbutton,
+button.removegroupbutton {
+    margin: 5px 0;
+    margin-left: 7px;
+}
+.date label{
+    margin-right: 3px;
+}
+
+#alert-message{
+    clear:both;
+}
+/*intensifier*/
+
+.ruleintensifier-container input {
+    width: 20px;
+    height: 20px;
+}
+
+.ruleintensifier {
+    float: left;
+    width: 250px;
+    margin: 10px;
+    border: 1px solid;
+}
+
+.ruleintensifier p,
+.pushnoteinput {
+    float: left;
+    margin-left: 4px;
+}
+
+.selectdays {
+    margin-left: 4px;
+}
+
+.phasenr {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.phasenr,
+.pushnotecontainer,
+.probabilitycontainer,
+.insertdayscontainer {
+    padding: 0 7px;
+}
+
+.ruleintensifier-container .insertdays {
+    width: 25px;
+}
+
+.insertdayscontainer label {
+    font-weight: normal;
+}
+
+.ruleaddbutton,
+.ruleremovebutton {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.ruleaddbutton{
+    margin-left: 17px;
+}
+
+.button-container {
+    margin-left: 10px;
+}
+.intensifier-button-container{
+    margin-bottom: -20px;
+}
+
+//motivationText
+#motivationTextheaderpos {
+    height: 40px;
+}
+
+#motivationTextpos {
+    height: 150px;
+}
+
+#savemotivationtext-button {
+    margin-bottom: 20px;
+}
+
+#save-button {
+    margin-top: 10px;
+}
+
+.image-container img:first-of-type {
+    margin-left: 0;
+}
+
+.loadedtext {
+    border: 1px solid black;
+    display: inline-block;
+    width: 300px;
+    padding: 10px;
+    margin: 15px;
+}
+
+.motivationtexts-container {
+    margin-left: -12px;
+}
+
+.motivationTextheader {
+    height: 40px;
+}
+
+.motivationText {
+    height: 100px;
+}
+
+.wrapper {
+    display: block;
+}
+
+.loadedimage {
+    width: 50px;
+    height: 125px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+/*BSA*/
+
+.bsaPeriod {
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.period-container>* {
+    float: left;
+}
+
+.bsa {
+    padding-left: 20px;
+    height: 30px;
+    margin-top: 30px;
+}
+
+.description {
+    padding-left: 20px;
+    display: block;
+    font-size: 11px;
+}

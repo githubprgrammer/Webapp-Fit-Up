@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Verstärkerplan</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
+
+
+
+
+
+
+    <style type="text/css">
+
+
+    </style>
+
+
+</head>
+
+<body>
+    <div id="header" class="background-light-grey">
+        <h1>Fit Up Administration</h1>
+
+        <button type="button" class="btn btn-default btn-sm logout-button">
+          <span class="glyphicon glyphicon-log-out"></span> Ausloggen
+        </button>
+
+    </div>
+
+    <header>
+        <div class="nav">
+            <ul>
+                <li><a href="./assignment.html">Zuweisung</a></li>
+                <li><a class="active" href="./intensifier.html">Verstärkerplan</a></li>
+                <li><a href="./motivationalText.html">Motivationstext</a></li>
+                <li id="bsa-nav"><a href="./BSA_questionary.html">BSA-Fragebogen</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class='ruleintensifier-container'>
+        <div class='intensifier-button-container'>
+            <button class='ruleaddbutton'>hinzufügen</button><button class='ruleremovebutton'>entfernen</button>
+        </div>
+        <div class='ruleintensifier' id='phase1'>
+            <div class='phasenr'>Phase <b>1</b></div>
+            <div class='insertdayscontainer'>
+                <input type='text' class='insertdays' maxlength="2">
+                <label>Tage</label>
+            </div>
+            <div class='pushnotecontainer'>
+                <p>Push-Note nach jedem</p><input class='pushnoteinput' type='text' maxlength="2">
+                <p>. Training</p>
+            </div>
+            <div class='probabilitycontainer'>
+                <p class='probabilitytext'>Wahrscheinlichkeit:</p>
+                <select class='probabilityinput' size="1" style="height:20px; width:60px;">
+                        </select>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="col-sm-6 col-md-6" id="alert-message" style="display:none">
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button>
+            <span class="glyphicon glyphicon-hand-right"></span> <strong>Fehlermeldung</strong>
+            <hr class="message-inner-separator">
+            <p>
+            </p>
+        </div>
+    </div>
+    <div class='buttondiv'> <button type="button" class="btn btn-primary" id="saveruleintensifier">Speichern</button></div>
+
+
+    <script src="js/index.js"></script>
+    <script src="js/intensifier.js"></script>
+
+</body>
+
+</html>
