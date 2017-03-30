@@ -180,12 +180,6 @@ $(".removegroupbutton").on("click", function () {
 //add/remove element
 
 
-
-
-
-
-
-
 //trims the first word(the day) in the dates in order to be proper dateobjects and therefore easier to compare
 function trimFirstWord(original) {
     return original.substr(original.indexOf(" ") + 1);
@@ -228,10 +222,10 @@ $("#saveassignment").on("click", function () {
             currenttodateid = todates.eq(j).prop('id');
             currenttodate = trimFirstWord($('#' + currenttodateid).val());
             if (!compareDates(firstfrom, firstto, currentfromdate, currenttodate)) {
-                $("#"+firstfromid).addClass("invalid");
-                $("#"+firsttoid).addClass("invalid");
-                $("#"+currentfromdateid).addClass("invalid");
-                $("#"+currenttodateid).addClass("invalid");
+                $("#" + firstfromid).addClass("invalid");
+                $("#" + firsttoid).addClass("invalid");
+                $("#" + currentfromdateid).addClass("invalid");
+                $("#" + currenttodateid).addClass("invalid");
                 datecollision = true;
             }
 

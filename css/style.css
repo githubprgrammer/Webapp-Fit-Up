@@ -28,9 +28,11 @@
 .min-btn-padding {
     padding: 4px 8px;
 }
+
 .invalid {
-  background-color: #ffdddd;
+    background-color: #ffdddd;
 }
+
 
 /*Theme Styles*/
 
@@ -193,13 +195,16 @@
 #bsa-nav {
     width: 180px;
 }
-#bsa-nav2{
+
+#bsa-nav2 {
     width: 200px;
 }
-.logout-button{
+
+.logout-button {
     margin-top: -150px;
-margin-left: 10px;
+    margin-left: 10px;
 }
+
 @media screen and (min-width: 600px) {
     .nav li {
         width: 160px;
@@ -268,13 +273,16 @@ button.removegroupbutton {
     margin: 5px 0;
     margin-left: 7px;
 }
-.date label{
+
+.date label {
     margin-right: 3px;
 }
 
-#alert-message{
-    clear:both;
+#alert-message {
+    clear: both;
 }
+
+
 /*intensifier*/
 
 .ruleintensifier-container input {
@@ -324,14 +332,16 @@ button.removegroupbutton {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.ruleaddbutton{
+
+.ruleaddbutton {
     margin-left: 17px;
 }
 
 .button-container {
     margin-left: 10px;
 }
-.intensifier-button-container{
+
+.intensifier-button-container {
     margin-bottom: -20px;
 }
 
