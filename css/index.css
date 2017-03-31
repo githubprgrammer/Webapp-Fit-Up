@@ -91,6 +91,9 @@ button.form-element {
     width: 100%;
     padding: 30px;
 }
-#falsepassword, .emailbadlyformatted, #nouserrecord{
+
+#falsepassword,
+.emailbadlyformatted,
+#nouserrecord {
     color: #C04442;
 }

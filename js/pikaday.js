@@ -247,6 +247,7 @@
         container: undefined,
 
         // internationalization
+
         i18n: {
             previousMonth : 'Previous Month',
             nextMonth     : 'Next Month',
@@ -254,7 +255,6 @@
             weekdays      : ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
             weekdaysShort : ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
         },
-
         // Theme Classname
         theme: null,
 

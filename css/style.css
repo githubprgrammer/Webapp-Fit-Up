@@ -282,12 +282,26 @@ button.removegroupbutton {
     clear: both;
 }
 
+.elementnr {
+    width: 400px;
+    height: 30px;
+    margin: 5px;
+    font-weight: bold;
+    padding: 5px;
+}
+
 
 /*intensifier*/
 
 .ruleintensifier-container input {
     width: 20px;
     height: 20px;
+}
+
+.ruleintensifier .phasenr {
+    width: 90%;
+    height: 20px;
+    margin-left: 8px;
 }
 
 .ruleintensifier {

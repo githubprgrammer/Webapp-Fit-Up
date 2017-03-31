@@ -1,199 +1,126 @@
-
-
 <!DOCTYPE html>
 
+
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <title>Fit Up Administration</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css"> 
-    	<link rel="stylesheet" href="css/index.css"> 
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
 
-<script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
-<script src = "./index.js"></script>
-    
+    <script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
 
-    
+
+
 
 
 
 
 </head>
+
 <body>
-<div id="header" class = "background-light-grey"><div><h1>Fit Up Administration</h1> </div></div>
-	<div id="header"> </div>
-
-	<div class="container multi-form-wrapper">
-		 <div class="form-container row">
-			<div id="main-login" class="module-form  col-xs-12 col-sm-5 col-md-5 col-lg-5">
-			
-
-
-      <div class="form-content">
-        <div class="form-header background-dark-green white">
-        	<div class="form-top-left">
-		          <h3>Login</h3>
-		      </div>
-		      <div class="form-top-right">
-		      		<span class="glyphicon glyphicon-lock"></span>
-		      </div>
-		      <br style="clear:both"/>
+    <div id="header" class="background-light-grey">
+        <div>
+            <h1>Fit Up Administration</h1>
         </div>
-        <div class="form-body">
-			<form role="form">
-
-
-            <div class="form-group  email">
-              <label for="Email"> <span class="glyphicon glyphicon-user"> </span> Email</label>
-        	  <input id="email" type="textbox" class="form-control form-element" name="email" placeholder="Email">
-            </div>
-
-            <div class="form-group password">
-              <label for="Passwort"><span class="glyphicon glyphicon-eye-open"></span> Passwort</label>
-			  <input id="password" type="password" class="form-control form-element" name="password" placeholder="Passwort">
-            </div>
-                <div id="falsepassword" style="display:none">Das Passwort ist ungültig oder die angegebene Email-Adresse ist nicht registriert.</div>
-                <div class="emailbadlyformatted" style="display:none">Geben Sie eine gültige Email-Adresse an!</div>
-            <br>
-			<button type="button" class="btn btn-default btn-success btn-block submit-btn login-btn"><span class="glyphicon glyphicon-lock"></span>&nbsp; Login</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-           <p> <a id="forgot-password" href="#">Passwort vergessen?</a></p><br>
-        </div>
-      </div>
-
-		</div>
-
-	 	<div class="col-sm-1"></div>
-	 	<div class="col-sm-1 "></div>
-
-	</div> 
-
-
-
-	</div>
-
-
-
-  <div class="modal fade" id="forgot-password-modal" role="dialog">
-    <div class="modal-dialog">
-    
-      <div class="modal-content">
-        <div class="modal-header background-green" style="padding:35px 50px;color:white;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Passwort vergessen</h4>
-        </div>
-        <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
-            <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
-              <input type="text" class="form-control" id="email1" placeholder="Email">
-            <div id="nouserrecord" style="display:none">Unter dieser Email-Adresse ist kein User registriert</div>
-                <div class="emailbadlyformatted" style="display:none">Geben Sie eine gültige Email-Adresse an!</div>
-            </div>
-            
-
-              <button type="button" id="send-email-link-button" class="btn btn-success btn-block"> <span class="glyphicon glyphicon-envelope"></span> &nbsp;Email-Link zusenden</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <p id="forgot-password-message"></p>
-        </div> 
-      </div>
-      
     </div>
-  </div> 
+    <div id="header"> </div>
+
+    <div class="container multi-form-wrapper">
+        <div class="form-container row">
+            <div id="main-login" class="module-form  col-xs-12 col-sm-5 col-md-5 col-lg-5">
+
+
+
+                <div class="form-content">
+                    <div class="form-header background-dark-green white">
+                        <div class="form-top-left">
+                            <h3>Login</h3>
+                        </div>
+                        <div class="form-top-right">
+                            <span class="glyphicon glyphicon-lock"></span>
+                        </div>
+                        <br style="clear:both" />
+                    </div>
+                    <div class="form-body">
+                        <form role="form">
+
+
+                            <div class="form-group  email">
+                                <label for="Email"> <span class="glyphicon glyphicon-user"> </span> Email</label>
+                                <input id="email" type="textbox" class="form-control form-element" name="email" placeholder="Email">
+                            </div>
+
+                            <div class="form-group password">
+                                <label for="Passwort"><span class="glyphicon glyphicon-eye-open"></span> Passwort</label>
+                                <input id="password" type="password" class="form-control form-element" name="password" placeholder="Passwort">
+                            </div>
+                            <div id="falsepassword" style="display:none">Das Passwort ist ungültig oder die angegebene Email-Adresse ist nicht registriert.</div>
+                            <div class="emailbadlyformatted" style="display:none">Geben Sie eine gültige Email-Adresse an!</div>
+                            <br>
+                            <button type="button" class="btn btn-default btn-success btn-block submit-btn login-btn"><span class="glyphicon glyphicon-lock"></span>&nbsp; Login</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p> <a id="forgot-password" href="#">Passwort vergessen?</a></p><br>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1 "></div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <div class="modal fade" id="forgot-password-modal" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header background-green" style="padding:35px 50px;color:white;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4><span class="glyphicon glyphicon-lock"></span> Passwort vergessen</h4>
+                </div>
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
+                            <input type="text" class="form-control" id="email1" placeholder="Email">
+                            <div id="nouserrecord" style="display:none">Unter dieser Email-Adresse ist kein User registriert</div>
+                            <div class="emailbadlyformatted" style="display:none">Geben Sie eine gültige Email-Adresse an!</div>
+                        </div>
+
+
+                        <button type="button" id="send-email-link-button" class="btn btn-success btn-block"> <span class="glyphicon glyphicon-envelope"></span> &nbsp;Email-Link zusenden</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p id="forgot-password-message"></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script src="js/login.js"></script>
+
 
 
 
 </body>
-<script type="text/javascript">
-    $("#forgot-password").click(function() {
-        $("#forgot-password-modal").modal();
-    });
-</script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyCfQdNEf99hClfaKM5oiydSqCUFXP7lSNM",
-        authDomain: "sportapp-cbd6b.firebaseapp.com",
-        databaseURL: "https://sportapp-cbd6b.firebaseio.com",
-        storageBucket: "sportapp-cbd6b.appspot.com",
-        messagingSenderId: "892175710582"
-    };
-    firebase.initializeApp(config);
-</script>
-<script type="text/javascript" ; src="index.js">
-</script>
 
-
-
-<script>
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-            window.location.href = "assignment.html";
-        }
-    });
-
-
-
-
-
-
-    $(".login-btn").on("click", function() {
-
-        var email = $("#email").val();
-        var password = $("#password").val();
-
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-            console.log(error.code);
-            console.log(error.message);
-/*            if(error.code = "auth/invalid-email"){
-                alert("ungültige Email-Adresse");
-            }*/
-            if(error.message == "The email address is badly formatted."){
-                $(".emailbadlyformatted").css("display","inherit");
-                $("#falsepassword").css("display","none");
-                $("#email").addClass("invalid");
-
-            }
-            else if(error.message == "The password is invalid or the user does not have a password."){
-                $(".emailbadlyformatted").css("display","none");
-                $("#falsepassword").css("display","inherit");
-                $("#email").addClass("invalid");
-                $("#password").addClass("invalid");
-            }
-
-        });
-    });
-</script>
-<script>
-    $("#send-email-link-button").on("click", function() {
-        var email1 = $("#email1").val();
-        firebase.auth().sendPasswordResetEmail(email1).catch(function(error){
-             if(error.message == "The email address is badly formatted."){
-                $(".emailbadlyformatted").css("display","inherit");
-                $("#nouserrecord").css("display","none");
-                $("#email1").addClass("invalid");
-
-            }
-            else if(error.message == "There is no user record corresponding to this identifier. The user may have been deleted."){
-                $("#emailbadlyformatted").css("display","none");
-                $("#nouserrecord").css("display","inherit");
-                $("#email1").addClass("invalid");
-            }
-            alert(error.message);
-            console.log(error.message);
-        })
-        
-        alert("Email-Link zugeschickt");
-    });
-</script>
 
 </html>

@@ -12,59 +12,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 });
 
 
-//add picker to the first elements
-var picker = new Pikaday({
-    field: document.getElementById("All-from1"),
-    firstDay: 1,
-    minDate: new Date(),
-    maxDate: new Date(2020, 12, 31),
-    yearRange: [2000, 2020]
-});
-var picker = new Pikaday({
-    field: document.getElementById('All-to1'),
-    firstDay: 1,
-    minDate: new Date(),
-    maxDate: new Date(2020, 12, 31),
-    yearRange: [2000, 2020]
-
-});
-
-var picker = new Pikaday({
-    field: document.getElementById('Random-from1'),
-    firstDay: 1,
-    minDate: new Date(),
-    maxDate: new Date(2020, 12, 31),
-    yearRange: [2000, 2020]
-
-});
-
-var picker = new Pikaday({
-    field: document.getElementById('Random-to1'),
-    firstDay: 1,
-    minDate: new Date(),
-    maxDate: new Date(2020, 12, 31),
-    yearRange: [2000, 2020]
-
-});
-
-var picker = new Pikaday({
-    field: document.getElementById('Altern-from1'),
-    firstDay: 1,
-    minDate: new Date(),
-    maxDate: new Date(2020, 12, 31),
-    yearRange: [2000, 2020]
-
-});
-
-var picker = new Pikaday({
-    field: document.getElementById('Altern-to1'),
-    firstDay: 1,
-    minDate: new Date(),
-    maxDate: new Date(2020, 12, 31),
-    yearRange: [2000, 2020]
-
-});
-//add picker to the first elements
 
 //add/remove element
 var allElements = ["same1"];
@@ -76,25 +23,28 @@ $(".addbutton").on("click", function () {
     var elementcontainer = addbutton.parent().next();
     var zuweisungcontainer = elementcontainer.parent();
     var element = elementcontainer.children().last();
-    var elementnr = parseInt(element.find(".elementnr p").text().substr(1)) + 1;
+    var elementnr;
     var elementid;
     var containername = zuweisungcontainer.attr('class');
     if (containername === 'all-container') {
+        elementnr = parseInt(element.prop("id").substr(4)) + 1;
         elementid = "same" + elementnr.toString();
         allElements.push(elementid);
     } else if (containername === 'random-container') {
+        elementnr = parseInt(element.prop("id").substr(6)) + 1;
         elementid = 'random' + elementnr;
         randomElements.push(elementid);
     } else if (containername === 'alternate-container') {
+        elementnr = parseInt(element.prop("id").substr(6)) + 1;
         elementid = 'altern' + elementnr;
         alternElements.push(elementid);
     }
     var elementnrString = "#" + elementnr.toString();
     var newelement;
     if (containername == 'alternate-container') {
-        newelement = elementcontainer.append('<div class="all-element" id="altern1"><div class="elementnr"><p>#1</p></div><div class="date"><label for="Altern-from1"  > Von   </label><input type="text" class="date-from" id="Altern-from1"><label for="Altern-to1"  > Bis   </label><input type="text" class="date-to" id="Altern-to1"></div><button class="addgroupbutton">Gruppe hinzufügen</button><button class="removegroupbutton">Gruppe entfernen </button><div class="group"><p>Gruppe <b>1</b></p><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4 > Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div><div class="group"><p>Gruppe <b>2</b></p><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4 > Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div></div>').find(".all-element").last().prop('id', elementid).find(".elementnr p").text(elementnrString).parent().parent();
+        newelement = elementcontainer.append('<div class="all-element" id="altern1"><button type="button" class="close" aria-hidden="true">×</button><input type="text" class="elementnr"></input><div class="date"><label for="Altern-from1"  > Von   </label><input type="text" class="date-from" id="Altern-from1"><label for="Altern-to1"  > Bis   </label><input type="text" class="date-to" id="Altern-to1"></div><button class="addgroupbutton">Gruppe hinzufügen</button><button class="removegroupbutton">Gruppe entfernen </button><div class="group"><p>Gruppe <b>1</b></p><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4 > Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div><div class="group"><p>Gruppe <b>2</b></p><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4 > Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div></div>').find(".all-element").last().prop('id', elementid);
     } else {
-        newelement = elementcontainer.append('                <div class="all-element" id="same1"><div class="elementnr"><p>#1</p></div><div class="date"><label for="All-from1"> Von   </label><input type="text" class="date-from" id="All-from1"><label for="All-to1" > Bis   </label><input type="text" class="date-to" id="All-to1"></div><div class="group"><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4> Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div></div>').find(".all-element").last().prop('id', elementid).find(".elementnr p").text(elementnrString).parent().parent();
+        newelement = elementcontainer.append('                <div class="all-element" id="same1"><button type="button" class="close" aria-hidden="true">×</button><input type="text" class="elementnr"></input><div class="date"><label for="All-from1"> Von   </label><input type="text" class="date-from" id="All-from1"><label for="All-to1" > Bis   </label><input type="text" class="date-to" id="All-to1"></div><div class="group"><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4> Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div></div>').find(".all-element").last().prop('id', elementid);
     }
     /*add datepicker*/
     var datefrom = newelement.find(".date .date-from");
@@ -144,20 +94,59 @@ $(".addbutton").on("click", function () {
 
 });
 
-$(".removebutton").on("click", function () {
-    var removebutton = $(this);
-    var elementcontainer = removebutton.parent().next();
-    if (elementcontainer.children().length > 1)
-        elementcontainer.children().last().remove();
-    if (removebutton.parent().hasClass("all-header")) {
-        allElements.pop();
-    } else if (removebutton.parent().hasClass("random-header")) {
-        randomElements.pop();
-    } else if (removebutton.parent().hasClass("altern-header")) {
-        alternElements.pop();
-    }
-});
 
+//remove Elements
+$("body").on("click", ".all-element button.close", function () {
+    close = $(this);
+    removeelement = close.parent();
+    var removeid = removeelement.prop("id");
+    var parent = removeelement.parent().parent();
+    if (parent.hasClass("all-container")) {
+        var index = allElements.indexOf(removeid);
+        if (index > -1) {
+            allElements.splice(index, 1);
+            var counter = 1;
+            $.each(allElements, function (i, val) {
+                if (counter > index) {
+                    var id = $("#" + val).prop("id", removeid);
+                    allElements[counter - 1] = removeid;
+                    removeid = val;
+                }
+                counter++;
+            })
+        }
+    } else if (parent.hasClass("random-container")) {
+        var index = randomElements.indexOf(removeid);
+        if (index > -1) {
+            randomElements.splice(index, 1);
+            var counter = 1;
+            $.each(randomElements, function (i, val) {
+                if (counter > index) {
+                    var id = $("#" + val).prop("id", removeid);
+                    randomElements[counter - 1] = removeid;
+                    removeid = val;
+                }
+                counter++;
+            })
+        }
+    } else {
+        var index = alternElements.indexOf(removeid);
+        if (index > -1) {
+            alternElements.splice(index, 1);
+            var counter = 1;
+            $.each(alternElements, function (i, val) {
+                if (counter > index) {
+                    var id = $("#" + val).prop("id", removeid);
+                    alternElements[counter - 1] = removeid;
+                    removeid = val;
+                }
+                counter++;
+            })
+        }
+    }
+    removeelement.remove();
+});
+//remove Elements
 
 /*add new group*/
 $(".addgroupbutton").on("click", function () {
@@ -196,7 +185,6 @@ function compareDates(date1Start, date1End, date2Start, date2End) {
 
 //save everything
 $("#saveassignment").on("click", function () {
-    var emptydatefield = false;
     var datecollision = false;
     var fromdates = $(".main-container").find('.date-from');
     var todates = $(".main-container").find('.date-to');
@@ -204,13 +192,19 @@ $("#saveassignment").on("click", function () {
     var firstto;
     var firstfromid;
     var firsttoid;
-    //check if there is a datecollision
+    //check if there is a datecollision 
     for (i = 0; i < fromdates.length;) {
         firstfromid = fromdates.eq(0).prop('id');
         firstfrom = trimFirstWord($('#' + firstfromid).val());
-        fromdates = fromdates.slice(1);
         firsttoid = todates.eq(0).prop('id');
         firstto = trimFirstWord($('#' + firsttoid).val());
+
+        if (firstto < firstfrom) {
+            $("#" + firstfromid).addClass("invalid");
+            $("#" + firsttoid).addClass("invalid");
+            datecollision = true;
+        }
+        fromdates = fromdates.slice(1);
         todates = todates.slice(1);
         var currentfromdate;
         var currentfromdateid;
@@ -229,27 +223,21 @@ $("#saveassignment").on("click", function () {
                 datecollision = true;
             }
 
+
         }
     }
-    //check if there are empty date fields
-    var allandrandomElements = $.merge($.merge([], allElements), randomElements);
-    var allandrandomandalternElements = $.merge($.merge([], allandrandomElements), alternElements);
-    $.each(allandrandomandalternElements, function (i, val) {
-        var elementid = "#" + val;
-        var datefrom = $(elementid).find(".date-from").prop("required", true).val();
-        var dateto = $(elementid).find(".date-to").prop("required", true).val();
-        if (!$.trim(datefrom) || !$.trim(dateto)) {
-            emptydatefield = true;
-        }
 
-    });
-
-
-    if (emptydatefield || datecollision) {
+    if (datecollision) {
         $("#alert-message").css("display", "inherit");
         return;
     }
-
+    //if there are no collisions remove the invalid class
+    fromdates = $(".main-container").find('.date-from');
+    todates = $(".main-container").find('.date-to');
+    for (j = 0; j < fromdates.length; j++) {
+        fromdates.eq(j).removeClass("invalid");
+        todates.eq(j).removeClass("invalid");
+    }
     /*save sameForAll*/
     var sameRef = firebase.database().ref("Administration/assignment/same");
     sameRef.remove();
@@ -263,6 +251,7 @@ $("#saveassignment").on("click", function () {
         var motivationtexts = $(elementid).find(".motivationtexts").prop('checked');
         var moodquery = $(elementid).find(".moodquery").prop('checked');
         var trainingreminder = $(elementid).find(".trainingreminder").prop('checked');
+        var assignmentname = $(elementid).find(".elementnr").val();
 
         sameRef.child(val).set({
             datefrom: datefrom,
@@ -274,7 +263,9 @@ $("#saveassignment").on("click", function () {
                 motivationtexts: motivationtexts,
                 moodquery: moodquery,
                 trainingreminder: trainingreminder,
-            }
+
+            },
+            assignmentname: assignmentname,
         });
     });
 
@@ -291,6 +282,7 @@ $("#saveassignment").on("click", function () {
         var motivationtexts = $(elementid).find(".motivationtexts").prop('checked');
         var moodquery = $(elementid).find(".moodquery").prop('checked');
         var trainingreminder = $(elementid).find(".trainingreminder").prop('checked');
+        var assignmentname = $(elementid).find(".elementnr").val();
         randomRef.child(val).set({
             datefrom: datefrom,
             dateto: dateto,
@@ -301,7 +293,8 @@ $("#saveassignment").on("click", function () {
                 motivationtexts: motivationtexts,
                 moodquery: moodquery,
                 trainingreminder: trainingreminder,
-            }
+            },
+            assignmentname: assignmentname,
         });
     });
 
@@ -313,10 +306,12 @@ $("#saveassignment").on("click", function () {
         var datefrom = $(elementid).find(".date-from").val();
         var dateto = $(elementid).find(".date-to").val();
         var groups = $(elementid).find('.group');
+        var assignmentname = $(elementid).find(".elementnr").val();
 
         alternRef.child(val).set({
             datefrom: datefrom,
             dateto: dateto,
+            assignmentname: assignmentname,
         });
         var groupactive;
         groups.each(function (i, obj) {
@@ -360,8 +355,26 @@ function loadassignments(assignmentobject, assignmenttype) {
         var elementcontainer = $(".all-container .all-elements-container");
         var element = $("#same1");
         firstassignment = assignmentobject.same1;
+        var datefromid = element.find(".date .date-from").prop("id");
+        var datetoid = element.find(".date .date-to").prop("id");
         element.find(".date .date-from").val(firstassignment.datefrom);
         element.find(".date .date-to").val(firstassignment.dateto);
+        element.find(".elementnr").val(firstassignment.assignmentname);
+        var picker = new Pikaday({
+            field: document.getElementById(datefromid),
+            firstDay: 1,
+            minDate: new Date(),
+            maxDate: new Date(2020, 12, 31),
+            yearRange: [2000, 2020]
+        });
+        var picker = new Pikaday({
+            field: document.getElementById(datetoid),
+            firstDay: 1,
+            minDate: new Date(),
+            maxDate: new Date(2020, 12, 31),
+            yearRange: [2000, 2020]
+
+        });
         element.find(".bsaQuestionary").prop('checked', firstassignment.activities.bsaQuestionary);
         element.find(".fitnessQuestionary").prop('checked', firstassignment.activities.fitnessQuestionary);
         element.find(".motivationimages").prop('checked', firstassignment.activities.motivationimages);
@@ -372,8 +385,26 @@ function loadassignments(assignmentobject, assignmenttype) {
         var elementcontainer = $(".random-container .all-elements-container");
         var element = $("#random1");
         firstassignment = assignmentobject.random1;
+        var datefromid = element.find(".date .date-from").prop("id");
+        var datetoid = element.find(".date .date-to").prop("id");
         element.find(".date .date-from").val(firstassignment.datefrom);
         element.find(".date .date-to").val(firstassignment.dateto);
+        element.find(".elementnr").val(firstassignment.assignmentname);
+        var picker = new Pikaday({
+            field: document.getElementById(datefromid),
+            firstDay: 1,
+            minDate: new Date(),
+            maxDate: new Date(2020, 12, 31),
+            yearRange: [2000, 2020]
+        });
+        var picker = new Pikaday({
+            field: document.getElementById(datetoid),
+            firstDay: 1,
+            minDate: new Date(),
+            maxDate: new Date(2020, 12, 31),
+            yearRange: [2000, 2020]
+
+        });
         element.find(".bsaQuestionary").prop('checked', firstassignment.activities.bsaQuestionary);
         element.find(".fitnessQuestionary").prop('checked', firstassignment.activities.fitnessQuestionary);
         element.find(".motivationimages").prop('checked', firstassignment.activities.motivationimages);
@@ -384,8 +415,26 @@ function loadassignments(assignmentobject, assignmenttype) {
         var elementcontainer = $(".alternate-container .all-elements-container");
         var element = $("#altern1");
         firstassignment = assignmentobject.altern1;
+        var datefromid = element.find(".date .date-from").prop("id");
+        var datetoid = element.find(".date .date-to").prop("id");
         element.find(".date .date-from").val(firstassignment.datefrom);
         element.find(".date .date-to").val(firstassignment.dateto);
+        element.find(".elementnr").val(firstassignment.assignmentname);
+        var picker = new Pikaday({
+            field: document.getElementById(datefromid),
+            firstDay: 1,
+            minDate: new Date(),
+            maxDate: new Date(2020, 12, 31),
+            yearRange: [2000, 2020]
+        });
+        var picker = new Pikaday({
+            field: document.getElementById(datetoid),
+            firstDay: 1,
+            minDate: new Date(),
+            maxDate: new Date(2020, 12, 31),
+            yearRange: [2000, 2020]
+
+        });
         var groups = firstassignment.groups;
         var groupnr = 3;
         var groupslength = groups.length;
@@ -426,17 +475,19 @@ function loadassignments(assignmentobject, assignmenttype) {
             var elementnrString = "#" + elementnr.toString();
             var newelement;
             if (assignmenttype == 'altern') {
-                newelement = elementcontainer.append('<div class="all-element" id="altern1"><div class="elementnr"><p>#1</p></div><div class="date"><label for="Altern-from1"  > Von   </label><input type="text" class="date-from" id="Altern-from1"><label for="Altern-to1"  > Bis   </label><input type="text" class="date-to" id="Altern-to1"></div><button class="addgroupbutton">Gruppe hinzufügen</button><button class="removegroupbutton">Gruppe entfernen </button><div class="group"><p>Gruppe <b>1</b></p><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4 > Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div><div class="group"><p>Gruppe <b>2</b></p><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4 > Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div></div>').find(".all-element").last().prop('id', key).find(".elementnr p").text(elementnrString).parent().parent();
-            } else {
-                newelement = elementcontainer.append('                <div class="all-element" id="same1"><div class="elementnr"><p>#1</p></div><div class="date"><label for="All-from1"> Von   </label><input type="text" class="date-from" id="All-from1" ><label for="All-to1" > Bis   </label><input type="text" class="date-to" id="All-to1"></div><div class="group"><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4> Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div></div>').find(".all-element").last().prop('id', key).find(".elementnr p").text(elementnrString).parent().parent();
-            }
+                newelement = elementcontainer.append('<div class="all-element" id="altern1"><button type="button" class="close" aria-hidden="true">×</button><input type="text" class="elementnr"></input><div class="date"><label for="Altern-from1"  > Von   </label><input type="text" class="date-from" id="Altern-from1"><label for="Altern-to1"  > Bis   </label><input type="text" class="date-to" id="Altern-to1"></div><button class="addgroupbutton">Gruppe hinzufügen</button><button class="removegroupbutton">Gruppe entfernen </button><div class="group"><p>Gruppe <b>1</b></p><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4 > Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div><div class="group"><p>Gruppe <b>2</b></p><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4 > Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div></div>').find(".all-element").last().prop('id', key);
 
+            } else {
+                newelement = elementcontainer.append('<div class="all-element" id="same1"><button type="button" class="close" aria-hidden="true">×</button><input type="text" class="elementnr"></input><div class="date"><label for="All-from1"> Von   </label><input type="text" class="date-from" id="All-from1" ><label for="All-to1" > Bis   </label><input type="text" class="date-to" id="All-to1"></div><div class="group"><label  ><input type="checkbox" class = "bsaQuestionary" motivator-nr = 1   > BSA Fragebogen</label><label  ><input type="checkbox" class = "fitnessQuestionary" motivator-nr = 2 > Fitnessfragebogen</label><label  ><input type="checkbox" class = "motivationimages" motivator-nr = 3 > Motivationsbilder</label><label  ><input type="checkbox" class = "motivationtexts" motivator-nr = 4> Motivationstexte</label><label  ><input type="checkbox" class = "moodquery" motivator-nr = 5> Stimmungsabfrage</label><label  ><input type="checkbox" class = "trainingreminder" motivator-nr = 6> Trainingserinnerung</label></div></div>').find(".all-element").last().prop('id', key);
+
+            }
             var datefrom = newelement.find(".date .date-from").val(value.datefrom);
             var datefromid = datefrom.prop("id");
             var dateto = newelement.find(".date .date-to").val(value.dateto);
             var datetoid = dateto.prop("id");
             var newidfrom;
             var newidto;
+            newelement.find(".elementnr").val(value.assignmentname);
 
             if (assignmenttype == 'random') {
                 newidfrom = "Random-from" + elementnr;
@@ -455,6 +506,26 @@ function loadassignments(assignmentobject, assignmenttype) {
                 datefrom.prop('id', newidfrom);
                 dateto.prop('id', newidto);
             }
+            //add datepicker                     
+            var picker = new Pikaday({
+                field: document.getElementById(newidfrom),
+                firstDay: 1,
+                minDate: new Date(),
+                maxDate: new Date(2020, 12, 31),
+                yearRange: [2000, 2020]
+
+            });
+
+            var picker = new Pikaday({
+
+                field: document.getElementById(newidto),
+                firstDay: 1,
+                minDate: new Date(),
+                maxDate: new Date(2020, 12, 31),
+                yearRange: [2000, 2020]
+
+            });
+
             if (assignmenttype == "same" || assignmenttype == "random") {
                 newelement.find(".bsaQuestionary").prop('checked', value.activities.bsaQuestionary);
                 newelement.find(".fitnessQuestionary").prop('checked', value.activities.fitnessQuestionary);
@@ -491,25 +562,6 @@ function loadassignments(assignmentobject, assignmenttype) {
                     groupnr++;
                 });
             }
-            //add datepicker                     
-            var picker = new Pikaday({
-                field: document.getElementById(newidfrom),
-                firstDay: 1,
-                minDate: new Date(),
-                maxDate: new Date(2020, 12, 31),
-                yearRange: [2000, 2020]
-
-            });
-
-            var picker = new Pikaday({
-
-                field: document.getElementById(newidto),
-                firstDay: 1,
-                minDate: new Date(),
-                maxDate: new Date(2020, 12, 31),
-                yearRange: [2000, 2020]
-
-            });
         }
 
         elementnr++;
